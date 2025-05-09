@@ -1,4 +1,3 @@
-
 import { useState } from "react";
 import { 
   Plus, 
@@ -279,7 +278,7 @@ const Logs = () => {
                   <Label htmlFor="log-type">Log Type</Label>
                   <Select 
                     defaultValue="water"
-                    onValueChange={(value) => setNewLog({...newLog, type: value})}
+                    onValueChange={(value) => setNewLog({...newLog, type: value as 'water' | 'exercise' | 'sleep' | 'mood'})}
                   >
                     <SelectTrigger>
                       <SelectValue placeholder="Select type" />
