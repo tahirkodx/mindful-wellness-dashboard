@@ -1,6 +1,6 @@
 
 import { useState, useEffect } from "react";
-import { Navigate, Outlet } from "react-router-dom";
+import { Navigate, Outlet, useNavigate } from "react-router-dom";
 import { 
   Home, 
   User, 
@@ -32,6 +32,7 @@ const DashboardLayout = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const { toast } = useToast();
   const location = useLocation();
+  const navigate = useNavigate();
 
   useEffect(() => {
     // Check if user is logged in
@@ -44,7 +45,7 @@ const DashboardLayout = () => {
     toast({
       title: "Logged out successfully",
     });
-    window.location.href = "/login";
+    navigate("/login");
   };
 
   if (!isLoggedIn) {

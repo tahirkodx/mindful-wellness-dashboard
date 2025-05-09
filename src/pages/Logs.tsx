@@ -127,7 +127,7 @@ const Logs = () => {
   const [searchQuery, setSearchQuery] = useState<string>("");
   const [isAddingLog, setIsAddingLog] = useState<boolean>(false);
   const [newLog, setNewLog] = useState<Partial<Log>>({
-    type: "water",
+    type: "water" as 'water',
     value: 0,
     date: new Date(),
   });
@@ -176,7 +176,7 @@ const Logs = () => {
     setLogs([logToAdd, ...logs]);
     setIsAddingLog(false);
     setNewLog({
-      type: "water",
+      type: "water" as 'water',
       value: 0,
       date: new Date(),
     });
