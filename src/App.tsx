@@ -1,7 +1,7 @@
 
 import React from 'react';
-import { Redirect, Route } from 'react-router-dom';
-import { IonApp, IonRouterOutlet, setupIonicReact } from '@ionic/react';
+import { Navigate, Routes, Route } from 'react-router-dom';
+import { IonApp, setupIonicReact } from '@ionic/react';
 import { IonReactRouter } from '@ionic/react-router';
 
 // Import pages
@@ -40,25 +40,25 @@ const App: React.FC = () => {
   return (
     <IonApp>
       <IonReactRouter>
-        <IonRouterOutlet>
-          <Route exact path="/" component={Index} />
-          <Route exact path="/login" component={Login} />
-          <Route exact path="/register" component={Register} />
-          <Route path="/dashboard">
-            {isAuthenticated ? (
+        <Routes>
+          <Route path="/" element={<Index />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/register" element={<Register />} />
+          <Route path="/dashboard/*" element={
+            isAuthenticated ? (
               <DashboardLayout>
-                <Route exact path="/dashboard" component={Dashboard} />
-                <Route exact path="/dashboard/logs" component={Logs} />
-                <Route exact path="/dashboard/calendar" component={Calendar} />
+                <Routes>
+                  <Route path="/" element={<Dashboard />} />
+                  <Route path="/logs" element={<Logs />} />
+                  <Route path="/calendar" element={<Calendar />} />
+                </Routes>
               </DashboardLayout>
             ) : (
-              <Redirect to="/login" />
-            )}
-          </Route>
-          <Route>
-            <Redirect to="/" />
-          </Route>
-        </IonRouterOutlet>
+              <Navigate to="/login" replace />
+            )
+          } />
+          <Route path="*" element={<Navigate to="/" replace />} />
+        </Routes>
       </IonReactRouter>
     </IonApp>
   );

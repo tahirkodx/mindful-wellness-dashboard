@@ -1,5 +1,6 @@
 
 import { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import {
   IonCard,
   IonCardHeader,
@@ -21,7 +22,6 @@ import {
   happyOutline,
   arrowForward
 } from "ionicons/icons";
-import { useHistory } from "react-router-dom";
 
 // Types for wellness data
 interface WellnessStats {
@@ -39,7 +39,7 @@ interface RecentLog {
 }
 
 const Dashboard = () => {
-  const history = useHistory();
+  const navigate = useNavigate();
   const [stats, setStats] = useState<WellnessStats>({
     water: 0,
     exercise: 0,
@@ -125,7 +125,7 @@ const Dashboard = () => {
   };
 
   const navigateToLogs = () => {
-    history.push("/dashboard/logs");
+    navigate("/dashboard/logs");
   };
 
   return (

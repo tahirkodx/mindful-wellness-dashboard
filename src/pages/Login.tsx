@@ -1,6 +1,6 @@
 
 import { useState } from "react";
-import { useHistory } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { 
   IonPage, 
   IonContent, 
@@ -26,7 +26,7 @@ const Login = () => {
   const [isLoading, setIsLoading] = useState(false);
   const [showToast, setShowToast] = useState(false);
   const [toastMessage, setToastMessage] = useState("");
-  const history = useHistory();
+  const navigate = useNavigate();
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -42,7 +42,7 @@ const Login = () => {
       
       // Use React Router for navigation
       setTimeout(() => {
-        history.push("/dashboard");
+        navigate("/dashboard");
       }, 1000);
     }, 1500);
   };

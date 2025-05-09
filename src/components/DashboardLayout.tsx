@@ -1,6 +1,6 @@
 
 import { useState } from "react";
-import { useHistory, useLocation } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
 import {
   IonContent,
   IonHeader,
@@ -37,18 +37,18 @@ interface DashboardLayoutProps {
 }
 
 const DashboardLayout = ({ children }: DashboardLayoutProps) => {
-  const history = useHistory();
+  const navigate = useNavigate();
   const location = useLocation();
   const [selectedTab, setSelectedTab] = useState(location.pathname);
 
   const handleNavigate = (path: string) => {
     setSelectedTab(path);
-    history.push(path);
+    navigate(path);
   };
 
   const handleLogout = () => {
     localStorage.removeItem("isLoggedIn");
-    history.push("/login");
+    navigate("/login");
   };
 
   return (
