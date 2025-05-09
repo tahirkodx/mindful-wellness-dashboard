@@ -1,8 +1,7 @@
 
 import React from 'react';
-import { Navigate, Routes, Route } from 'react-router-dom';
+import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 import { IonApp, setupIonicReact } from '@ionic/react';
-import { IonReactRouter } from '@ionic/react-router';
 
 // Import pages
 import Index from './pages/Index';
@@ -39,7 +38,7 @@ const App: React.FC = () => {
 
   return (
     <IonApp>
-      <IonReactRouter>
+      <BrowserRouter>
         <Routes>
           <Route path="/" element={<Index />} />
           <Route path="/login" element={<Login />} />
@@ -59,7 +58,7 @@ const App: React.FC = () => {
           } />
           <Route path="*" element={<Navigate to="/" replace />} />
         </Routes>
-      </IonReactRouter>
+      </BrowserRouter>
     </IonApp>
   );
 };
