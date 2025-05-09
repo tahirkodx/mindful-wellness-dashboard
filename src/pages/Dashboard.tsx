@@ -1,4 +1,3 @@
-
 import { useState } from "react";
 import { 
   AreaChart, 
@@ -23,7 +22,7 @@ import {
 } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { 
-  Water, 
+  Droplets, 
   Activity, 
   Moon, 
   Smile, 
@@ -118,7 +117,7 @@ const Dashboard = () => {
                 </div>
               </div>
               <div className="h-12 w-12 rounded-full bg-wellness-water bg-opacity-20 flex items-center justify-center">
-                <Water className="h-6 w-6 text-wellness-water" />
+                <Droplets className="h-6 w-6 text-wellness-water" />
               </div>
             </div>
           </CardContent>

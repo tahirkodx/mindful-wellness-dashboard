@@ -1,8 +1,7 @@
-
 import { useState } from "react";
 import { format, addDays, subDays, startOfMonth, endOfMonth, eachDayOfInterval, isSameMonth, isSameDay } from "date-fns";
 import { Button } from "@/components/ui/button";
-import { ChevronLeft, ChevronRight, Water, Activity, Moon, Smile } from "lucide-react";
+import { ChevronLeft, ChevronRight, Droplets, Activity, Moon, Smile } from "lucide-react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { cn } from "@/lib/utils";
@@ -49,7 +48,7 @@ const Calendar = () => {
   const getIconByType = (type: string) => {
     switch (type) {
       case 'water':
-        return <Water size={16} className="text-wellness-water" />;
+        return <Droplets size={16} className="text-wellness-water" />;
       case 'exercise':
         return <Activity size={16} className="text-wellness-exercise" />;
       case 'sleep':
@@ -153,7 +152,7 @@ const Calendar = () => {
                         <div className="mt-1 flex flex-wrap gap-1 justify-center">
                           {logCounts.water > 0 && (
                             <Badge variant="outline" className="bg-blue-50 text-blue-500 border-blue-200">
-                              <Water size={10} className="mr-1" /> {logCounts.water}
+                              <Droplets size={10} className="mr-1" /> {logCounts.water}
                             </Badge>
                           )}
                           {logCounts.exercise > 0 && (

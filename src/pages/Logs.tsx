@@ -4,7 +4,7 @@ import {
   Plus, 
   Filter,
   Search,
-  Water, 
+  Droplets, 
   Activity, 
   Moon, 
   Smile,
@@ -214,7 +214,7 @@ const Logs = () => {
   const getIconByType = (type: string) => {
     switch (type) {
       case 'water':
-        return <Water size={20} className="text-wellness-water" />;
+        return <Droplets size={20} className="text-wellness-water" />;
       case 'exercise':
         return <Activity size={20} className="text-wellness-exercise" />;
       case 'sleep':
